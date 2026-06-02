@@ -51,6 +51,14 @@ impl OxrEntry {
             },
             &required_exts.into(),
             layers,
+            #[cfg(not(target_os = "android"))]
+            &(),
+            #[cfg(target_os = "android")]
+            &unsafe {
+                openxr::AndroidPlatformInfo::new(
+                    bevy_android::ANDROID_APP.get().unwrap().activity_as_ptr(),
+                )
+            },
         )?;
 
         Ok(OxrInstance(instance, backend, app_info))

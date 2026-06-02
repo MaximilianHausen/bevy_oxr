@@ -157,23 +157,21 @@ dependencies = [
 
 [[package]]
 name = "android-activity"
-version = "0.6.0"
+version = "0.6.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "ef6978589202a00cd7e118380c448a08b6ed394c3a8df3a430d0898e3a42d046"
+checksum = "0f2a1bb052857d5dd49572219344a7332b31b76405648eabac5bc68978251bcd"
 dependencies = [
  "android-properties",
  "bitflags 2.13.0",
  "cc",
- "cesu8",
- "jni 0.21.1",
- "jni-sys 0.3.1",
+ "jni 0.22.4",
  "libc",
  "log",
  "ndk",
  "ndk-context",
  "ndk-sys",
  "num_enum",
- "thiserror 1.0.69",
+ "thiserror 2.0.18",
 ]
 
 [[package]]
@@ -1188,10 +1186,10 @@ checksum = "bff34eb29ff4b8a8688bc7299f14fb6b597461ca80fec03ed7d22939ab33e48f"
 name = "bevy_mod_openxr"
 version = "0.5.0"
 dependencies = [
- "android-activity",
  "android_system_properties",
  "ash",
  "bevy",
+ "bevy_android",
  "bevy_app",
  "bevy_camera",
  "bevy_derive",
@@ -4517,8 +4515,7 @@ dependencies = [
 [[package]]
 name = "openxr"
 version = "0.21.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2c2f814a47d257c79c762bc64042859661b6aa2f57cfa1f0ad4d778f419aeb0e"
+source = "git+https://github.com/Ralith/openxrs.git?rev=beaeb9bde734a58a73fdc09da57e4c372cd18e53#beaeb9bde734a58a73fdc09da57e4c372cd18e53"
 dependencies = [
  "libc",
  "libloading 0.9.0",
@@ -4529,8 +4526,7 @@ dependencies = [
 [[package]]
 name = "openxr-sys"
 version = "0.13.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "4b8d66081de28c2fa40216182a37292fe38aeea20bc184612504d5e64daf5359"
+source = "git+https://github.com/Ralith/openxrs.git?rev=beaeb9bde734a58a73fdc09da57e4c372cd18e53#beaeb9bde734a58a73fdc09da57e4c372cd18e53"
 dependencies = [
  "cmake",
  "libc",

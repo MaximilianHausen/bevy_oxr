@@ -261,12 +261,18 @@ impl OxrInitPlugin {
         SessionGraphicsCreateInfo,
     )> {
         #[cfg(windows)]
-        let entry = OxrEntry(openxr::Entry::linked());
+        let entry = OxrEntry(openxr::Entry::linked(&())?);
         #[cfg(not(windows))]
-        let entry = OxrEntry(unsafe { openxr::Entry::load()? });
-
-        #[cfg(target_os = "android")]
-        entry.initialize_android_loader()?;
+        let entry = OxrEntry(unsafe {
+            openxr::Entry::load(
+                #[cfg(not(target_os = "android"))]
+                &(),
+                #[cfg(target_os = "android")]
+                &openxr::AndroidPlatformInfo::new(
+                    bevy_android::ANDROID_APP.get().unwrap().activity_as_ptr(),
+                ),
+            )?
+        });
 
         let available_exts = entry.enumerate_extensions()?;
 
