@@ -26,6 +26,7 @@ android_system_properties = { version = "0.1.5", optional = true }
 # bevy can't be placed behind target or proc macros won't work properly
 [dependencies]
 bevy_ecs.workspace = true
+bevy_extract.workspace = true
 bevy_math.workspace = true
 bevy_render.workspace = true
 bevy_app.workspace = true
