@@ -11,6 +11,7 @@ members = ["crates/*", "crates/bevy_openxr/examples/android"]
 
 [workspace.dependencies]
 bevy = "0.19"
+bevy_android = { version = "0.19", default-features = false }
 bevy_ecs = { version = "0.19", default-features = false }
 bevy_math = { version = "0.19", default-features = false }
 bevy_render = { version = "0.19", default-features = false }
@@ -32,7 +33,7 @@ bevy_platform = { version = "0.19", default-features = false }
 bevy_mod_xr = { path = "crates/bevy_xr", version = "0.6.0" }
 bevy_mod_openxr = { path = "crates/bevy_openxr", version = "0.6.0" }
 bevy_xr_utils = { path = "crates/bevy_xr_utils", version = "0.6.0" }
-openxr = "0.21.1"
+openxr = "0.22.0"
 thiserror = "2.0.3"
 wgpu = "29"
 wgpu-hal = "29"
